@@ -1,0 +1,49 @@
+name: Verifica ZEUS Suite
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il codice
+        uses: actions/checkout@v4
+
+      - name: Controlla versione e struttura add-on
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f repository.yaml
+          test -f zeus_casa/config.yaml
+          test -f zeus_casa/Dockerfile
+          test -f zeus_casa/server.py
+          test -d zeus_casa/qr_lib
+          grep -Fq 'version: "1.7.17-rc4-nav1"' zeus_casa/config.yaml
+
+      - name: Controlla sintassi Python
+        shell: bash
+        run: |
+          set -euo pipefail
+          find zeus_casa -type f -name '*.py' -print0 | xargs -0 -r -n 1 python3 -m py_compile
+
+      - name: Controlla sintassi JavaScript
+        shell: bash
+        run: |
+          set -euo pipefail
+          find zeus_casa -type f -name '*.js' -print0 | xargs -0 -r -n 1 node --check
+
+      - name: Compila immagine locale di prova (senza pubblicarla)
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker build \
+            --build-arg BUILD_VERSION=1.7.17-rc4-nav1 \
+            --build-arg BUILD_ARCH=amd64 \
+            --tag zeus-suite:verifica \
+            zeus_casa
+
+# Questa workflow non esegue deploy, push Docker o modifiche a Home Assistant.
