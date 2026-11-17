@@ -1,0 +1,35 @@
+name: "ZEUS Suite"
+version: "1.7.17-rc4-nav1"
+slug: "casa_consumi"
+description: "ZEUS Casa, Lending, Finance e Vault, con fotografia privata nel login e nella Home; Paghe escluso"
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: services
+boot: auto
+stage: experimental
+backup: cold
+homeassistant_api: true
+ports:
+  "8090/tcp": 8090
+  "8091/tcp": 8091
+ports_description:
+  "8090/tcp": "Applicazione web indipendente (autenticata)"
+  "8091/tcp": "ZEUS Reading pubblico: solo invio letture QR"
+options:
+  username: "admin"
+  password: ""
+  notifications_enabled: false
+  notify_service: ""
+  notify_hour: "09:00"
+  ha_api_token: ""
+  reading_public_url: "https://zeusreading.archis.uk"
+schema:
+  username: str
+  password: password
+  notifications_enabled: bool
+  notify_service: str
+  notify_hour: str
+  ha_api_token: password?
+  reading_public_url: str

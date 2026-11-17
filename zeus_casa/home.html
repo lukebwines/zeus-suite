@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Home ZEUS · Casa, Lending, Finance, Vault</title>
+<link rel="icon" type="image/svg+xml" href="/zeus-icon.svg"><link rel="stylesheet" href="/home.css?v=1.7.3"><link rel="stylesheet" href="/zeus-nav.css?v=1.7.8">
+<meta name="theme-color" content="#28594a"></head>
+<body class="zeus-home-page">
+<main class="zh-dashboard" id="home-main">
+<section class="zh-hero" aria-labelledby="home-title"><img class="zh-hero-photo" src="/login-cortile.jpg" alt=""><div class="zh-hero-copy"><p class="zh-eyebrow">BENVENUTO IN ZEUS</p><h1 id="home-title">Tutto sotto controllo.</h1><p>Casa, finanza, prestiti e documenti in un unico spazio.</p></div></section>
+<section class="zh-modules" aria-labelledby="home-modules-title">
+ <div class="zh-section-head"><div><h2 id="home-modules-title">I tuoi moduli</h2><p>Accedi rapidamente alle principali funzioni di ZEUS.</p></div></div>
+ <div class="zh-modules-grid">
+  <a class="zh-module" href="/casa"><span class="zh-module-icon zh-casa">⌂</span><strong>ZEUS Casa</strong><span>Immobili e utenze</span><p>Consumi, bollette, ripartizioni e rendiconti.</p><b>Apri modulo <span aria-hidden="true">↗</span></b></a>
+  <a class="zh-module" href="/debiti"><span class="zh-module-icon zh-lending">▤</span><strong>ZEUS Lending</strong><span>Prestiti e rimborsi</span><p>Capitale, rate, interessi e ammortamenti.</p><b>Apri modulo <span aria-hidden="true">↗</span></b></a>
+  <a class="zh-module" href="/finance"><span class="zh-module-icon zh-finance">▥</span><strong>ZEUS Finance</strong><span>Controllo finanziario</span><p>Entrate, uscite, programmazioni e previsioni.</p><b>Apri modulo <span aria-hidden="true">↗</span></b></a>
+  <a class="zh-module" href="/vault"><span class="zh-module-icon zh-vault">▱</span><strong>ZEUS Vault</strong><span>Archivio e scadenze</span><p>Documenti, fascicoli e promemoria.</p><b>Apri modulo <span aria-hidden="true">↗</span></b></a>
+ </div>
+</section>
+<div id="zh-status" class="zh-status" role="status" aria-live="polite">Caricamento dei riepiloghi dai moduli ZEUS…</div>
+<div class="zh-lower">
+ <div class="zh-main-grid">
+  <section class="zh-card" aria-labelledby="zh-casa-heading"><div class="zh-card-head"><h2 id="zh-casa-heading">Riepilogo utenze</h2><a href="/casa">Vai a ZEUS Casa ↗</a></div>
+   <div class="zh-metric"><span>Bollette registrate</span><strong id="zh-bills">—</strong></div><p class="zh-hint" id="zh-casa-caption">Riepilogo dell'archivio condiviso.</p><div class="zh-mini-link"><a href="/bollette">Gestione bollette →</a><a href="/gestione?tab=rendiconti">Rendiconti cumulativi →</a></div>
+  </section>
+  <section class="zh-card" aria-labelledby="zh-finance-heading"><div class="zh-card-head"><h2 id="zh-finance-heading">Situazione finanziaria</h2><a href="/finance">Vai a ZEUS Finance ↗</a></div>
+   <div class="zh-metric"><span>Disponibilità effettiva oggi</span><strong id="zh-cash">—</strong></div><div class="zh-pair"><div><small>Entrate effettive nell'anno</small><b id="zh-income">—</b></div><div><small>Uscite effettive nell'anno</small><b id="zh-expense">—</b></div></div><p class="zh-hint" id="zh-finance-caption">Le previsioni non sono denaro già disponibile.</p>
+  </section>
+  <section class="zh-card" aria-labelledby="zh-lending-heading"><div class="zh-card-head"><h2 id="zh-lending-heading">Prestiti e rimborsi</h2><a href="/debiti">Vai a ZEUS Lending ↗</a></div>
+   <div class="zh-metric"><span>Debito residuo complessivo</span><strong id="zh-debt">—</strong></div><p class="zh-hint" id="zh-loans-caption">In attesa dei dati dei prestiti.</p><div class="zh-mini-link"><a href="/debiti#loans">Piani di ammortamento →</a></div>
+  </section>
+  <section class="zh-card" aria-labelledby="zh-vault-heading"><div class="zh-card-head"><h2 id="zh-vault-heading">Documenti e scadenze</h2><a href="/vault">Vai a ZEUS Vault ↗</a></div>
+   <div class="zh-pair zh-vault-stat"><div><small>Documenti archiviati</small><b id="zh-docs">—</b></div><div><small>Scadenze nei prossimi 30 giorni</small><b id="zh-vault-due">—</b></div></div><div class="zh-mini-link"><a href="/vault#documents">Apri archivio →</a><a href="/vault#deadlines">Vedi scadenze →</a></div>
+  </section>
+ </div>
+ <aside class="zh-aside">
+  <section class="zh-card" aria-labelledby="zh-due-heading"><div class="zh-card-head"><h2 id="zh-due-heading">Prossime scadenze</h2><a href="/vault#deadlines">Apri Vault ↗</a></div><p class="zh-hint">Impegni documentali e finanziari previsti nei prossimi 30 giorni.</p><div id="zh-deadlines" class="zh-feed">Caricamento…</div></section>
+  <section class="zh-card" aria-labelledby="zh-recent-heading"><div class="zh-card-head"><h2 id="zh-recent-heading">Attività recenti</h2><a href="/vault">Apri Vault ↗</a></div><p class="zh-hint">Ultime modifiche documentali registrate nell'archivio.</p><div id="zh-events" class="zh-feed">Caricamento…</div></section>
+ </aside>
+</div>
+<footer class="zh-foot">ZEUS Casa · Home generale · I valori sono ottenuti dai dati registrati nei rispettivi moduli. <a href="/casa">Apri la panoramica delle utenze</a></footer>
+</main>
+<script src="/home.js?v=1.7.3" defer></script><script src="/nav.js?v=1.7.8" defer></script><script src="/auth-ui.js?v=1.7.3" defer></script>
+</body></html>

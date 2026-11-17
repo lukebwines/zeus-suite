@@ -1,0 +1,38 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Impostazioni – ZEUS</title>
+<link rel="stylesheet" href="/zeus-admin.css"><link rel="stylesheet" href="/zeus-nav.css?v=1.7.5"></head><body>
+<main class="zeus-admin-content"><div class="zeus-admin-head"><small>PIATTAFORMA ZEUS</small><h1>Impostazioni</h1><p>Configurazione generale, protezione dei dati e manutenzione.</p></div>
+<div class="zeus-admin-grid">
+<section class="zeus-admin-card" id="settings-reading"><h2>ZEUS Reading · PIN comune</h2><p>Il PIN di quattro cifre è condiviso dai sette contatori e può essere cambiato senza ristampare i QR. Per scaricare i codici, vai a <a href="/letture">Contatori e consumi</a>.</p>
+<form id="zeus-reading-pin-form"><label for="zeus-reading-pin">Nuovo PIN comune (4 cifre)</label>
+<input id="zeus-reading-pin" type="password" inputmode="numeric" maxlength="4" minlength="4" pattern="[0-9]{4}" required autocomplete="new-password" placeholder="••••">
+<button type="submit" class="zeus-admin-action">Salva PIN comune</button><p role="status" id="zeus-reading-pin-status" class="zeus-admin-status"></p></form></section>
+<section class="zeus-admin-card"><h2>Immobili e utenze</h2><p>Configura i nomi degli appartamenti e accedi alle impostazioni dei contatori.</p><a class="zeus-admin-action secondary" href="/immobili">Configurazione immobili</a></section>
+<section class="zeus-admin-card"><h2>Manutenzione e registro attività</h2><p>Operazioni straordinarie, interventi tracciati e controlli di integrità.</p><a class="zeus-admin-action secondary" href="/manutenzione">Manutenzione dati</a><a class="zeus-admin-action secondary" href="/activity">Registro attività</a></section>
+
+<section class="zeus-admin-card"><h2>Account e sicurezza</h2><p>Le credenziali sono configurate nell'add-on Home Assistant. La pagina di login rimane indipendente dai moduli.</p><div class="zeus-admin-hint">Per cambiare username o password, aggiorna le opzioni dell’add-on Home Assistant e riavvialo.</div></section>
+<section class="zeus-admin-card" id="zeus-login-branding"><h2>Fotografia della schermata di accesso</h2>
+<p>Puoi ripristinare la fotografia della casa mostrata nella pagina di login. Il file viene conservato nell'archivio persistente privato dell'add-on e non su GitHub. La fotografia è visibile anche prima dell'accesso, come nell'installazione precedente.</p>
+<label for="zeus-login-photo-file">Fotografia JPEG della casa (massimo 8 MB)</label>
+<input id="zeus-login-photo-file" type="file" accept=".jpg,.jpeg,image/jpeg">
+<button type="button" class="zeus-admin-action secondary" id="zeus-login-photo-upload">Aggiorna fotografia della casa</button>
+<p role="status" class="zeus-admin-status" id="zeus-login-photo-status"></p>
+</section>
+<section class="zeus-admin-card"><h2>Preferenze</h2><p>La Home ZEUS è la pagina iniziale predefinita. L'ultimo modulo aperto e la posizione del menu sono conservati durante la sessione del browser.</p><a class="zeus-admin-action secondary" href="/">Apri Home ZEUS</a></section>
+<section class="zeus-admin-card"><h2>Notifiche e promemoria</h2><p>Gestisci la configurazione delle notifiche dall'add-on Home Assistant e le singole scadenze in ZEUS Vault.</p><a class="zeus-admin-action secondary" href="/vault#deadlines">Vai a ZEUS Vault</a><a class="zeus-admin-action secondary" href="/gestione?tab=scadenze">Scadenze utenze</a></section>
+<section class="zeus-admin-card" id="zeus-backup"><h2>Backup e ripristino</h2><p>Il backup completo ZIP contiene il database SQLite e i file archiviati in ZEUS Vault. Custodiscilo in modo protetto.</p><a class="zeus-admin-action" href="/api/backup/zip">Scarica backup completo ZIP</a><a class="zeus-admin-action secondary" href="/api/backup/sqlite">Scarica database SQLite</a><button class="zeus-admin-action secondary" type="button" id="settings-export-json">Esporta archivio JSON</button>
+<label for="settings-restore-json">Ripristina archivio JSON (solo utenze e anagrafica)</label>
+<input id="settings-restore-json" type="file" accept=".json,application/json"><p class="zeus-admin-status" id="settings-status" role="status"></p><div class="zeus-admin-hint">L'esportazione JSON contiene solo parte dei dati. Per salvare o recuperare TUTTO ZEUS usa il backup completo ZIP. Username, password e configurazione Home Assistant non vengono inclusi.</div>
+<div class="zeus-admin-restore"><h3>Ripristino completo ZEUS</h3>
+<p>Ripristina Casa, Finance, Lending, Vault, bollette, PDF, fotografie nel database e allegati. Sostituisce i dati attuali, ma conserva una copia di sicurezza sul Raspberry.</p>
+<label for="settings-restore-zip">1. Seleziona un backup completo ZIP ZEUS</label>
+<input id="settings-restore-zip" type="file" accept=".zip,application/zip">
+<button class="zeus-admin-action secondary" type="button" id="settings-check-zip">Carica e verifica il backup</button>
+<div id="settings-restore-summary" class="zeus-admin-hint" hidden></div>
+<div id="settings-confirm-area" hidden><label for="settings-confirm-text">2. Scrivi RIPRISTINA ZEUS per confermare la sostituzione di tutti i dati</label>
+<input id="settings-confirm-text" type="text" autocomplete="off" placeholder="RIPRISTINA ZEUS">
+<button class="zeus-admin-action" type="button" id="settings-confirm-zip">Programma ripristino</button></div>
+<p id="settings-restore-status" class="zeus-admin-status" role="status"></p>
+<div class="zeus-admin-hint">3. Dopo la conferma, riavvia manualmente l'add-on ZEUS in Home Assistant. Prima del riavvio non viene sostituito alcun dato. Durante il riavvio attendi che ZEUS torni online. Non riavviare tutta Home Assistant se non necessario.</div>
+</div></section>
+<section class="zeus-admin-card"><h2>Informazioni</h2><p>ZEUS · 1.7.17-rc4<br>Moduli: Casa, Lending, Finance, Vault.</p><a class="zeus-admin-action secondary" href="/activity">Registro attività</a></section>
+</div></main><script src="/nav.js?v=1.7.7" defer></script><script src="/auth-ui.js?v=1.7.4" defer></script><script src="/settings.js?v=1.7.16" defer></script></body></html>

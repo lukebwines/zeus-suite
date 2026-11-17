@@ -1,0 +1,45 @@
+.f-toolbar{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0 23px}.f-toolbar label{margin:0;min-width:150px}.f-toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}.f-toolbar-actions button{white-space:nowrap}.f-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 20px}.f-kpis .tile{border-radius:9px;border:1px solid #dfe6dc;background:white;padding:17px;min-width:0}.f-kpis .tile small{display:block;font-size:11px;color:#69816f}.f-kpis .tile strong{display:block;margin:11px 0 8px;font-size:26px;font-weight:600;overflow-wrap:anywhere}.f-kpis .tile p{font-size:11px;color:#849385;margin:0}.f-kpis .tile.accent{background:#edf4e8}.f-panel{min-width:0}.f-panel h2{margin-bottom:7px}.f-section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.f-section-head p{margin:0 0 16px}.f-chart{display:flex;align-items:end;gap:9px;overflow-x:auto;min-height:185px;margin:10px 0 15px;padding:14px 0 5px}.f-chart .f-bar-col{min-width:51px;flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;font-size:10px;color:#678170}.f-bar{width:100%;max-width:40px;height:125px;display:flex;flex-direction:column;justify-content:flex-end;background:#f0f5ee;border-radius:4px}.f-bar span{display:block;background:#448263;border-radius:4px 4px 2px 2px;width:100%;min-height:2px}.f-bar span.negative{background:#c68062}.f-month-value{font-size:10px;color:#425747;white-space:nowrap}.f-table-wrap{width:100%;overflow:auto}.f-table-wrap table{min-width:600px}.f-table-wrap td{font-variant-numeric:tabular-nums}.f-table-wrap th{white-space:nowrap}.f-duo{display:grid;grid-template-columns:1fr 1fr;gap:17px}.f-duo .card{min-width:0}.f-line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #e9efe7;font-size:12px}.f-line strong{font-size:15px;white-space:nowrap}.f-due-row{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1e9;font-size:12px}.f-due-row small{display:block;color:#839184;margin-top:5px}.f-due-row button{white-space:nowrap}.f-empty{border:1px dashed #d9e4d5;border-radius:8px;padding:20px;color:#849283;font-size:12px;background:#fafcf9}.f-message{padding:12px 16px;border-radius:7px;border:1px solid #cbdfc7;background:#eff7ea;margin:15px 0;color:#315f42}.f-message.bad{background:#fff1eb;border-color:#e5c8b6;color:#a04435}.f-dialog{border:1px solid #d6e1d5;border-radius:10px;padding:23px 26px;width:min(94vw,730px);max-height:88vh;overflow:auto;background:#fff;color:#233d33;box-shadow:0 25px 80px #0b24173b}.f-dialog::backdrop{background:#0b241780}.f-dialog h2{font-size:23px;margin:0 0 8px}.f-dialog p{font-size:12px;color:#687f6e;line-height:1.6}.f-fields{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:3px}.f-fields .f-span{grid-column:1/-1}.f-fields label{margin:9px 0;font-size:12px}.f-fields textarea{min-height:60px}.f-modal-actions{display:flex;gap:9px;justify-content:flex-end;margin:15px 0 0}.f-inflow{color:#286d4c}.f-outflow{color:#a55c42}.f-amount{text-align:right;white-space:nowrap}.f-sml-btn{border:1px solid #cad9c7;border-radius:5px;padding:7px 10px;font-size:11px;background:white;color:#28594a}.f-sml-btn.danger{color:#a34a3c;border-color:#eccbc6}.f-sml-btn:disabled{opacity:.5}.f-chip{background:#f1f5ea;padding:3px 6px;border-radius:4px;font-size:10px}.f-note{font-size:10px;color:#7b8c7e;margin-top:4px}.f-panel .warning{margin:0 0 15px}@media(max-width:1100px){.f-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.f-duo{grid-template-columns:1fr}.f-toolbar-actions{width:100%}.f-toolbar-actions .btn{flex:1}.f-kpis{gap:8px}.f-kpis .tile{padding:13px}.f-kpis .tile strong{font-size:20px}.f-fields{grid-template-columns:1fr}.f-dialog{padding:15px}.f-chart .f-bar-col{min-width:46px}}@media print{.zeus-appnav,.zeus-shellbar,.f-toolbar,.f-dialog,button,.f-due-row button{display:none!important}body.zeus-navigation{padding-left:0!important}.wrapper{max-width:none;padding:0 15px}.card{page-break-inside:avoid}.f-kpis{grid-template-columns:repeat(4,1fr)}}
+
+#f-debt-links .f-table-wrap table{min-width:650px} #f-debt-events{margin-top:13px;padding:11px;border-radius:6px;background:#f1f5ee;color:#315f44;font-size:12px} #f-debt-dialog .f-span{grid-column:1/-1}
+
+/* v1.6.7 - four-series cash flow graph and financial table alignment */
+.f-chart-legend{display:flex;justify-content:flex-end;flex-wrap:wrap;column-gap:24px;row-gap:9px;margin:3px 0 8px;font-size:12px;color:#596d63}
+.f-chart-legend span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.f-chart-legend i{width:12px;height:12px;display:inline-block;border-radius:50%;flex:none}
+.f-legend-in-actual,.f-flow-in-actual{background:#286d4c!important}
+.f-legend-in-forecast,.f-flow-in-forecast{background:#b5dabc!important}
+.f-legend-out-actual,.f-flow-out-actual{background:#aa3e42!important}
+.f-legend-out-forecast,.f-flow-out-forecast{background:#f1b2b4!important}
+.f-chart{display:block;min-height:0;margin:8px 0 22px;padding:0;overflow-x:auto}
+.f-chart-area{display:grid;grid-template-columns:82px minmax(1040px,1fr);min-height:350px;padding-top:8px}
+.f-flow-axis{display:flex;flex-direction:column;justify-content:space-between;text-align:right;padding:0 12px 24px 0;font-size:11px;color:#64756b}
+.f-flow-months{display:grid;grid-template-columns:repeat(12,minmax(80px,1fr));position:relative;background:linear-gradient(to bottom,transparent calc(50% - 13px),#93a49a calc(50% - 13px),#93a49a calc(50% - 12px),transparent calc(50% - 12px))}
+.f-flow-month{display:grid;grid-template-rows:1fr 1fr 25px;min-width:0;position:relative}
+.f-flow-half{display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:0 5px;min-height:150px;border-top:1px dashed #edf1eb}
+.f-flow-half.f-flow-negative{align-items:flex-start;border-top:1px solid #93a49a;border-bottom:1px dashed #edf1eb}
+.f-flow-bar{width:26%;max-width:18px;min-width:8px;height:0;border-radius:3px 3px 0 0;transition:height .15s ease}
+.f-flow-negative .f-flow-bar{border-radius:0 0 3px 3px}
+.f-flow-month-label{text-align:center;display:block;line-height:25px;font-size:11px;color:#64776b;font-weight:600}
+.f-month-table{width:100%;min-width:1050px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.f-month-table th,.f-month-table td{padding:13px 14px;text-align:right;white-space:nowrap}
+.f-month-table th:first-child,.f-month-table td:first-child{text-align:left}
+.f-month-table th:last-child,.f-month-table td:last-child{font-weight:600}
+.f-schedule-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.f-schedule-edit-note{border-left:3px solid #679b79;padding:8px 11px;background:#f0f6ee}
+.f-history-row{padding:12px 0;border-bottom:1px solid #e3eae0;font-size:12px}
+.f-history-row small{display:block;margin:5px 0;color:#64776b;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:720px){.f-chart-area{grid-template-columns:73px minmax(980px,1fr)}.f-flow-bar{min-width:11px}.f-chart-legend{justify-content:flex-start;gap:9px 15px}.f-chart{margin-top:12px}}
+@media print{.f-chart{overflow:visible}.f-chart-area{grid-template-columns:70px minmax(0,1fr)}.f-flow-months{grid-template-columns:repeat(12,minmax(0,1fr))}.f-flow-half{padding:0 2px;gap:2px}}
+
+/* v1.7.8: cauzioni mostrate come flussi patrimoniali distinti. */
+.f-legend-deposit-in,.f-flow-deposit-in{background:#4d8ba8!important}
+.f-legend-deposit-out,.f-flow-deposit-out{background:#8c67ac!important}
+.f-flow-bar{width:22%;max-width:16px;min-width:7px}
+.f-month-table{min-width:1400px}
+
+/* Scadenze Finance: stato cronologico delle singole occorrenze. */
+.f-status-badge{display:inline-block;padding:3px 7px;border-radius:5px;font-size:10px;font-weight:750;letter-spacing:.025em;line-height:1.4;vertical-align:middle;white-space:normal}
+.f-status-overdue{color:#991b1b;background:#fee2e2;border:1px solid #fca5a5}
+.f-status-planned{color:#475569;background:#f1f5f9;border:1px solid #cbd5e1}
+.f-status-registered{color:#166534;background:#dcfce7;border:1px solid #86efac}
+.f-occurrence-status{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}

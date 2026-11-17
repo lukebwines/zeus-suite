@@ -1,0 +1,43 @@
+.reading-wrapper{max-width:1320px}
+.reading-wrapper .tabs{display:flex;flex-wrap:wrap}
+.reading-grid{display:grid;grid-template-columns: 1fr 1fr;gap:18px}
+.reading-card{background:#fff;border:1px solid #e3e8df;border-radius:10px;padding:22px;margin-bottom:16px}
+.reading-card h2{font-size:18px;margin:0 0 14px}.reading-card h3{font-size:14px;margin:16px 0 10px}
+.reading-card .hint{font-size:12px;line-height:1.7;color:#78877b;margin:9px 0}
+.reading-card .fields{margin-top:14px}
+.reading-card input,.reading-card select,.reading-card textarea{width:100%;font-size:13px;min-width:0;border:1px solid #d7e1d7;padding:10px;border-radius:6px;box-sizing:border-box;background:white;color:#28463b}
+.reading-card label{font-size:11px;display:flex;flex-direction:column;gap:7px;color:#536c5f}
+.reading-card textarea{min-height:70px}
+.reading-card button{cursor:pointer}.reading-card button:disabled{opacity:.5;cursor:not-allowed}
+.reading-card .btn{border-radius:6px;padding:11px 16px;border:0;background:#28594a;color:#fff;font-weight:600}
+.reading-card .btn.light{color:#28594a;background:#edf4e9;border:1px solid #c8dbc7}
+.reading-card .btn.danger{background:#fcf0ed;color:#af5549;border:1px solid #ead0c7}
+.reading-card .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px;align-items:center}
+.reading-note{padding:14px 16px;border-left:4px solid #9bae98;background:#eff4eb;color:#45644c;border-radius:6px;font-size:12px;line-height:1.7;margin:14px 0}
+.reading-warn{border-left-color:#c59d5b;background:#fff6e7;color:#875c2c}
+.reading-error{border-left-color:#bd6656;background:#fff0ed;color:#974f40}
+.reading-table{width:100%;border-collapse:collapse;font-size:12px}.reading-table td,.reading-table th{text-align:left;padding:11px 9px;border-bottom:1px solid #e8eee6;vertical-align:middle}.reading-table th{color:#778579;font-weight:500}.reading-table td:last-child,.reading-table th:last-child{text-align:right}.reading-table button{font-size:11px;padding:6px 9px;border:1px solid #e2e6dc;background:#fff;color:#805646;border-radius:5px}
+.reading-table-wrap{max-width:100%;overflow:auto}.reading-table .nowrap{white-space:nowrap}
+.reading-badge{display:inline-block;padding:5px 8px;background:#ebf2e6;border-radius:5px;color:#4d7351;font-size:11px;font-weight:600}
+.reading-badge.warn{background:#f9eacb;color:#966f33}
+.reading-badge.error{background:#fae6df;color:#ac5a43}
+.reading-figures{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.reading-figure{background:#f4f7f0;border-radius:7px;padding:15px;min-width:0}
+.reading-figure small{display:block;color:#718174;font-size:11px;line-height:1.5}.reading-figure strong{display:block;font-size:22px;font-weight:500;overflow-wrap:anywhere;margin-top:10px}
+.reading-card .formcheck{display:flex;flex-direction:row;gap:9px;align-items:flex-start;color:#385742;line-height:1.5;margin:10px 0}
+.reading-card .formcheck input{width:18px;height:18px;flex-shrink:0;margin-top:0}
+.reading-card .micro{font-size:11px;line-height:1.6;color:#778779}
+.reading-select{max-width:460px}
+.reading-card .sm-title{margin-top:0}
+@media(max-width:770px){.reading-grid{grid-template-columns:1fr}.reading-card{padding:17px}.reading-figures{grid-template-columns:1fr}.reading-table{font-size:11px}.reading-card .fields{grid-template-columns:1fr}}
+@media print{.head,.tabs,.actions,#message,form,button{display:none!important}.reading-wrapper{max-width:none}.reading-card{break-inside:avoid}}
+.qr-devices{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:13px}.qr-device{padding:17px;border:1px solid #dbe5da;border-radius:10px;background:#fbfdf9}.qr-device h3{font-size:14px;margin:0 0 12px}.qr-device a{display:inline-block;margin:8px 0;font-size:12px;text-decoration:underline;color:#28594a}.qr-device button{padding:9px 11px;font-size:11px;margin:5px 5px 0 0}
+
+.qr-reject-dialog{border:1px solid #d4e1d1;border-radius:12px;padding:22px;width:min(460px,calc(100% - 24px));max-height:90vh;color:#254333;background:#fff;box-shadow:0 24px 70px #132a254a}
+.qr-reject-dialog::backdrop{background:#16382b99}
+.qr-reject-dialog h3{font-size:19px;margin:0 0 12px}
+.qr-reject-dialog label{margin:14px 0}
+.qr-reject-dialog .actions{justify-content:flex-end}
+.reading-table td:last-child{white-space:normal;min-width:205px}
+.reading-table td:last-child button{display:inline-block;margin:2px;padding:7px 10px}
+.reading-table td:last-child button[data-action="delete"]{background:#fbeae6;color:#a93625;border-color:#e6bcb6}

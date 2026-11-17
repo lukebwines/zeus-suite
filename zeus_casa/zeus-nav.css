@@ -1,0 +1,305 @@
+/* Uniform navigation for all ZEUS Casa administration pages. Not loaded by ZEUS Reading. */
+body.zeus-navigation {padding-left:242px;min-width:0;}
+.zeus-appnav, .zeus-appnav *,.zeus-appnav-mobilebar,.zeus-appnav-mobilebar * {box-sizing:border-box}
+.zeus-appnav {position:fixed;z-index:400;left:0;top:0;bottom:0;width:242px;overflow-x:hidden;overflow-y:auto;background:#fff;border-right:1px solid #e5e9e3;padding:25px 13px 15px;font-family:Arial,Helvetica,sans-serif;color:#263c36;}
+.zeus-appnav-brand {display:flex;align-items:center;gap:10px;color:#263c36!important;text-decoration:none!important;font-size:21px;font-weight:bold;letter-spacing:-.8px;padding:3px 6px 23px;}
+.zeus-appnav-brand .zeus-appnav-light {font-weight:400;}
+.zeus-appnav-brand small {display:block;color:#87928a;font-size:9px;letter-spacing:1.1px;margin-top:3px;font-weight:600;}
+.zeus-appnav-icon {display:grid;place-items:center;flex-shrink:0;border-radius:10px;width:36px;height:36px;background:#28594a;color:white;font-size:26px;}
+.zeus-appnav-links {display:flex!important;flex-direction:column;align-items:stretch!important;gap:3px!important;margin:0!important;overflow:visible!important;}
+.zeus-appnav-heading {margin:19px 8px 7px!important;color:#85938c!important;font-size:9px!important;font-weight:700!important;letter-spacing:1.3px!important;line-height:1.3!important;}
+.zeus-appnav-link {display:flex!important;align-items:center!important;gap:10px!important;border-radius:7px!important;padding:10px 11px!important;min-height:40px!important;background:transparent!important;color:#5b7164!important;text-decoration:none!important;font-size:12px!important;font-weight:500!important;line-height:1.25!important;}
+.zeus-appnav-symbol {font-size:17px;line-height:1!important;min-width:21px;text-align:center;}
+.zeus-appnav-link:hover {background:#f1f5ef!important;color:#28594a!important;}
+.zeus-appnav-link.zeus-appnav-active {background:#e7f0e6!important;color:#28594a!important;font-weight:700!important;}
+.zeus-appnav-link:focus-visible,.zeus-appnav-brand:focus-visible,.zeus-appnav-toggle:focus-visible {outline:3px solid #a6bb84;outline-offset:2px;}
+.zeus-appnav-foot .zeus-logout-action {display:block;margin:11px 0 0;padding:8px 12px;border:1px solid #b7cabb;border-radius:6px;background:#fff;color:#28594a;font-size:12px;cursor:pointer;}
+.zeus-appnav-foot {border-top:1px solid #e5e9e3;margin:23px 7px 0;padding:15px 0 0;font-size:10px;color:#87938a;}
+.zeus-appnav-headerhome {display:flex;align-items:center;gap:11px;color:inherit!important;text-decoration:none!important;}
+.zeus-appnav-headerhome:hover {color:#28594a!important;}
+.zeus-appnav-mobilebar,.zeus-appnav-backdrop {display:none;}
+/* Home: hide its older embedded sidebar, leaving all original React panels intact. */
+body.zeus-navigation #root .app {display:block!important;}
+body.zeus-navigation #root .sidebar {display:none!important;}
+body.zeus-navigation #root main {margin-left:0!important;width:100%!important;max-width:none;}
+@media (max-width:850px) {
+  body.zeus-navigation {padding-left:0!important;padding-top:60px!important;}
+  body.zeus-navigation .zeus-appnav {width:min(280px,86vw);top:60px;transform:translateX(-105%);transition:transform .18s ease;box-shadow:4px 0 18px #172e231a;}
+  body.zeus-navigation.zeus-appnav-open .zeus-appnav {transform:translateX(0);}
+  body.zeus-navigation .zeus-appnav-mobilebar {display:flex;z-index:420;position:fixed;inset:0 0 auto;align-items:center;gap:12px;height:60px;padding:7px 15px;background:white;border-bottom:1px solid #e5e9e3;}
+  body.zeus-navigation .zeus-appnav-toggle {display:grid;place-items:center;border:1px solid #d7e2d5;background:#f6f8f4;color:#28594a;border-radius:8px;min-width:42px;height:42px;font-size:20px;cursor:pointer;padding:0;}
+  body.zeus-navigation .zeus-appnav-mobilehome {font-size:18px;color:#28594a;font-weight:700;text-decoration:none;}
+  body.zeus-navigation .zeus-appnav-backdrop {display:none;position:fixed;inset:0;background:#17282088;border:0;z-index:390;}
+  body.zeus-navigation.zeus-appnav-open .zeus-appnav-backdrop {display:block;}
+  body.zeus-navigation #root main {margin:0!important;width:100%!important;}
+  /* Keep original page headers without a second horizontal navigation strip on small displays. */
+  body.zeus-navigation header.head .head-links {display:none;}
+}
+@media print {
+  body.zeus-navigation {padding-left:0!important;padding-top:0!important;}
+  .zeus-appnav,.zeus-appnav-mobilebar,.zeus-appnav-backdrop {display:none!important;}
+}
+
+
+/* ZEUS Casa 1.5.9 — shared application shell and design tokens.
+   All rules are scoped to authenticated ZEUS pages; reader and login remain isolated. */
+:root {
+  --zeus-shell-sidebar:242px;
+  --zeus-shell-bg:#f6f8f4;
+  --zeus-shell-paper:#fff;
+  --zeus-shell-ink:#263c36;
+  --zeus-shell-muted:#728379;
+  --zeus-shell-line:#e2e9e1;
+  --zeus-shell-accent:#28594a;
+  --zeus-shell-max:1500px;
+}
+body.zeus-navigation {
+  background:var(--zeus-shell-bg)!important;
+  color:var(--zeus-shell-ink);
+  margin:0;
+  padding-left:var(--zeus-shell-sidebar)!important;
+  font-family:Arial,Helvetica,sans-serif;
+  min-width:0!important;
+  overflow-x:clip;
+}
+/* The shellbar replaces ALL legacy duplicate page headers. */
+body.zeus-navigation > header:not(.zeus-shellbar) {display:none!important;}
+body.zeus-navigation > .head {display:none!important;}
+body.zeus-navigation .zeus-shellbar {
+  position:relative;z-index:10;box-sizing:border-box;
+  height:62px;min-height:62px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:#fff;border-bottom:1px solid var(--zeus-shell-line);
+  padding:0 clamp(20px,2.7vw,38px);
+  font:12px/1.45 Arial,Helvetica,sans-serif;
+  color:var(--zeus-shell-muted);
+}
+body.zeus-navigation .zeus-shellbar-trail,
+body.zeus-navigation .zeus-shellbar-end {display:flex;align-items:center;gap:11px;min-width:0;}
+body.zeus-navigation .zeus-shellbar a {color:var(--zeus-shell-accent);text-decoration:none;}
+body.zeus-navigation .zeus-shellbar a:hover {text-decoration:underline;}
+body.zeus-navigation .zeus-shellbar-title {font-weight:700;color:var(--zeus-shell-ink);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.zeus-navigation .zeus-shellbar-separator {color:#b6c1b6;font-size:18px;}
+body.zeus-navigation .zeus-shellbar-status {color:#899b8e;white-space:nowrap;font-size:11px;}
+body.zeus-navigation .zeus-shellbar-home {font-size:11px;white-space:nowrap;}
+/* Eliminate pages looking like nested sites by enforcing shared content gutters. */
+body.zeus-navigation > .wrapper,
+body.zeus-navigation > main.wrapper,
+body.zeus-navigation > main:not(.zeus-shellbar) {
+  width:100%!important;
+  max-width:var(--zeus-shell-max)!important;
+  margin:0 auto!important;
+  padding:28px clamp(18px,2.7vw,38px) 50px!important;
+  min-width:0;
+  box-sizing:border-box;
+}
+body.zeus-navigation .wrapper > .intro {margin-top:0!important;padding-top:0!important;}
+body.zeus-navigation .wrapper .intro h1 {font-size:clamp(26px,2.4vw,34px)!important;line-height:1.16!important;letter-spacing:-.8px!important;margin:0 0 12px!important;color:var(--zeus-shell-ink);}
+body.zeus-navigation .wrapper .intro p {font-size:12px;line-height:1.65;color:var(--zeus-shell-muted);}
+/* Shared neutral surfaces, controls, tables and readable hierarchy. */
+body.zeus-navigation .card {border-color:var(--zeus-shell-line);border-radius:10px;}
+body.zeus-navigation :is(input,select,textarea) {max-width:100%;}
+body.zeus-navigation :is(input,select,textarea):focus-visible,
+body.zeus-navigation button:focus-visible,
+body.zeus-navigation a:focus-visible {outline:2px solid #6a9e84;outline-offset:2px;}
+body.zeus-navigation :is(table) {max-width:100%;}
+/* Home: no second navigation strip, no wide empty status band. The dashboard
+   content must start directly after the shared header and remain readable. */
+body.zeus-navigation #root .topbar {display:none!important;}
+body.zeus-navigation #root .app {display:block!important;min-height:0!important;}
+body.zeus-navigation #root .sidebar {display:none!important;}
+body.zeus-navigation #root main {display:block!important;margin:0!important;width:100%!important;min-height:0!important;max-width:none!important;}
+body.zeus-navigation #root .content {
+  width:100%!important;max-width:var(--zeus-shell-max)!important;
+  margin:0 auto!important;
+  padding:28px clamp(18px,2.7vw,38px) 40px!important;
+}
+body.zeus-navigation #root .local-note {display:none!important;}
+body.zeus-navigation #root .heading {margin-top:0!important;margin-bottom:24px!important;}
+body.zeus-navigation #root .heading h1 {font-size:clamp(26px,2.4vw,34px)!important;}
+body.zeus-navigation #root .stats {margin-bottom:21px!important;}
+body.zeus-navigation #root .filters {margin-bottom:16px!important;}
+body.zeus-navigation #root .overview-grid {margin-bottom:21px!important;}
+/* Non-default responsive breakpoints formerly squeezed the Home to a tiny
+   74px sidebar; let the shell own the navigation at all widths. */
+@media (min-width:851px) and (max-width:1100px) {
+  :root {--zeus-shell-sidebar:226px;}
+  body.zeus-navigation .zeus-appnav{width:226px;}
+  body.zeus-navigation #root .heading {align-items:flex-start;}
+}
+@media (max-width:850px) {
+  body.zeus-navigation {padding-left:0!important;padding-top:58px!important;}
+  body.zeus-navigation .zeus-appnav-mobilebar {height:58px;padding:7px 16px;}
+  body.zeus-navigation .zeus-appnav {top:58px;}
+  body.zeus-navigation .zeus-shellbar {display:none!important;}
+  body.zeus-navigation > .wrapper,
+  body.zeus-navigation > main.wrapper,
+  body.zeus-navigation > main:not(.zeus-shellbar),
+  body.zeus-navigation #root .content {padding:21px 16px 36px!important;}
+  body.zeus-navigation #root .heading {margin-bottom:18px!important;}
+  body.zeus-navigation .wrapper .intro h1 {font-size:28px!important;}
+}
+@media (max-width:580px) {
+  body.zeus-navigation #root .content {padding:20px 15px 36px!important;}
+  body.zeus-navigation .wrapper .intro {margin-bottom:22px;}
+  body.zeus-navigation .zeus-appnav {top:58px;}
+  body.zeus-navigation .reading-grid,
+  body.zeus-navigation .new-layout {grid-template-columns:minmax(0,1fr)!important;}
+}
+@media print {
+  body.zeus-navigation {padding:0!important;overflow:visible!important;}
+  body.zeus-navigation .zeus-shellbar {display:none!important;}
+}
+
+/* Documents has its own template: align it with the rest of the application. */
+body.zeus-navigation > main > h1 {
+  font-size:clamp(26px,2.4vw,34px)!important;
+  font-weight:500!important;
+  letter-spacing:-.8px!important;
+  line-height:1.16;
+  margin:0 0 12px!important;
+  color:var(--zeus-shell-ink)!important;
+}
+body.zeus-navigation > main > h1 + p {
+  font-size:12px!important;line-height:1.65!important;
+  margin:0 0 24px!important;color:var(--zeus-shell-muted)!important;
+}
+body.zeus-navigation > main > section {
+  border:1px solid var(--zeus-shell-line)!important;
+  background:var(--zeus-shell-paper)!important;
+  border-radius:10px!important;
+}
+body.zeus-navigation > main > section h2 {font-size:18px!important;letter-spacing:-.3px;}
+body.zeus-navigation > main > .foot {color:var(--zeus-shell-muted);}
+
+/* Preserve Refresh and other operational actions previously stored in page headers. */
+body.zeus-navigation .zeus-shellbar-action,
+body.zeus-navigation .zeus-mobile-action {
+  padding:8px 12px;border:1px solid #cbd9ca;background:#fff;color:#28594a;
+  border-radius:7px;font:600 11px Arial,Helvetica,sans-serif;cursor:pointer;
+}
+body.zeus-navigation .zeus-shellbar-action:hover,
+body.zeus-navigation .zeus-mobile-action:hover {background:#f0f5ed;}
+body.zeus-navigation .zeus-mobile-actions {display:none;}
+@media(max-width:850px){
+  body.zeus-navigation .zeus-mobile-actions {display:flex;flex-wrap:wrap;gap:9px;margin-top:13px;}
+  body.zeus-navigation .zeus-mobile-action {font-size:12px;}
+}
+
+/* v1.7.2: accordion navigation with independent scroll, no page-wide horizontal overflow. */
+.zeus-appnav {padding:18px 10px 15px;overscroll-behavior:contain;scrollbar-gutter:stable;}
+.zeus-appnav-brand {padding:5px 8px 18px;line-height:1.2;}
+.zeus-appnav-brand small {font-size:8px;letter-spacing:.65px;line-height:1.5;}
+.zeus-appnav-links {gap:6px!important;}
+.zeus-appnav-module {min-width:0;border:1px solid transparent;border-radius:10px;}
+.zeus-appnav-modulebtn {display:flex;align-items:center;text-align:left;gap:10px;width:100%;min-height:46px;padding:10px 11px;background:transparent;color:#3d544a;border:0;border-radius:9px;font:600 13px/1.3 Arial,Helvetica,sans-serif;cursor:pointer;}
+.zeus-appnav-modulebtn:hover {background:#f2f6f1;color:#28594a;}
+.zeus-appnav-modulebtn {text-decoration:none!important;}
+.zeus-appnav-modulebtn.zeus-appnav-module-selected {background:#e7f0e8;color:#245946;}
+.zeus-appnav-modulebtn.zeus-appnav-module-open {background:#e7f0e8;color:#245946;}
+.zeus-appnav-modulebtn:focus-visible {outline:3px solid #a6bb84;outline-offset:2px;}
+.zeus-appnav-module-icon {font-size:21px;display:inline-grid;place-items:center;width:24px;height:24px;flex-shrink:0;}
+.zeus-appnav-modulename {flex:1;min-width:0;}
+.zeus-appnav-children {padding:7px 4px 12px 8px;min-width:0;}
+.zeus-appnav-children[hidden] {display:none!important;}
+.zeus-appnav-children .zeus-appnav-heading {font-size:9px!important;margin:13px 5px 6px!important;}
+.zeus-appnav-children .zeus-appnav-link {padding:8px 9px!important;min-height:35px!important;font-size:11.5px!important;line-height:1.35!important;}
+.zeus-appnav-children .zeus-appnav-symbol {font-size:15px;min-width:18px;}
+.zeus-appnav-foot {margin-top:12px;padding-top:10px;}
+.zeus-appnav-foot .zeus-appnav-settings {font-size:12px!important;min-height:40px!important;}
+.zeus-appnav-version {display:block;padding:12px 7px 1px;font-size:10px;}
+body.zeus-navigation .zeus-shellbar {min-width:0;}
+body.zeus-navigation .zeus-shellbar-end {flex-shrink:1;}
+body.zeus-navigation > .wrapper,body.zeus-navigation > main.wrapper,body.zeus-navigation > main:not(.zeus-shellbar) {overflow-wrap:break-word;}
+body.zeus-navigation .vault-table-scroll,body.zeus-navigation .f-table-wrap,body.zeus-navigation .debt-table {max-width:100%;overflow-x:auto;}
+body.zeus-navigation .f-panel,body.zeus-navigation .card,body.zeus-navigation .vault-card,body.zeus-navigation .vault-selected {min-width:0;}
+@media(max-width:850px) {
+  body.zeus-navigation .zeus-appnav {top:58px;bottom:0;max-height:calc(100dvh - 58px);}
+  body.zeus-navigation .zeus-appnav-backdrop {inset:58px 0 0;}
+  body.zeus-navigation .zeus-appnav-mobilebar {height:58px;}
+  body.zeus-navigation .zeus-appnav-children .zeus-appnav-link {min-height:40px!important;padding:10px!important;font-size:12.5px!important;}
+}
+@media print {.zeus-appnav-module,.zeus-appnav-modulebtn {display:none!important;}}
+
+/* ZEUS 1.7.3 – global homepage stays separate from the four expandable modules. */
+.zeus-appnav-globalhome {margin:3px 0 10px!important;font-weight:700!important;min-height:45px!important;}
+.zeus-appnav-globalhome.zeus-appnav-active {background:#e2f0e6!important;}
+body.zeus-navigation.zeus-home-page .zeus-shellbar-title {color:#295c48;}
+
+/* v1.7.4 – isolate shared navigation from per-page section/nav/button selectors */
+body.zeus-navigation .zeus-appnav {box-sizing:border-box!important;}
+body.zeus-navigation .zeus-appnav .zeus-appnav-module {
+  display:block!important;margin:0!important;padding:0!important;
+  background:transparent!important;border:1px solid transparent!important;
+  min-width:0!important;box-shadow:none!important;max-width:100%!important;
+}
+body.zeus-navigation .zeus-appnav .zeus-appnav-links {
+  display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
+  align-items:stretch!important;gap:3px!important;width:100%!important;padding:0!important;
+}
+body.zeus-navigation .zeus-appnav .zeus-appnav-modulebtn {
+  display:flex!important;align-items:center!important;width:100%!important;
+  margin:0!important;flex-wrap:nowrap!important;box-shadow:none!important;
+  border:0!important;border-radius:9px!important;
+}
+body.zeus-navigation .zeus-appnav .zeus-appnav-children {margin:0!important;border:0!important;}
+body.zeus-navigation .zeus-appnav .zeus-appnav-link {box-shadow:none!important;max-width:100%!important;}
+body.zeus-navigation .zeus-appnav .zeus-appnav-children[hidden] {display:none!important;}
+
+/* v1.7.5 – only the parent shell has a sidebar; embedded pages keep their own viewport. */
+body.zeus-navigation.zeus-embedded-page {padding-left:0!important;padding-top:0!important;}
+body.zeus-embedded-page .zeus-appnav,body.zeus-embedded-page .zeus-shellbar {display:none!important;}
+body.zeus-shell-app {height:100dvh;min-height:0;overflow:hidden!important;padding-left:242px!important;}
+body.zeus-shell-app .zeus-workspace {height:calc(100dvh - 62px);width:100%;overflow:hidden!important;box-sizing:border-box;max-width:none!important;margin:0!important;padding:0!important;}
+body.zeus-shell-app .zeus-workspace-frame {display:block;width:100%;height:100%;border:0;background:#f6f8f4;}
+body.zeus-shell-app .zeus-shellbar {height:62px;}
+body.zeus-shell-app .zeus-shellbar-home[hidden] {display:none!important;}
+@media (min-width:851px) and (max-width:1100px){body.zeus-shell-app{padding-left:226px!important}}
+@media (max-width:850px){body.zeus-shell-app{padding:58px 0 0!important}body.zeus-shell-app .zeus-workspace{height:calc(100dvh - 58px)}}
+@media print {body.zeus-shell-app{padding:0!important;overflow:visible!important}body.zeus-shell-app .zeus-workspace{height:auto!important;overflow:visible!important}.zeus-workspace-frame{height:100vh!important}}
+
+/* 1.7.16 — navigation consolidation. Context bar is in the shell,
+   OUTSIDE the iframe: no effect on widths or styles of operational pages. */
+body.zeus-shell-app .zeus-contextnav {
+  box-sizing:border-box;display:flex;align-items:center;gap:7px;overflow-x:auto;
+  overflow-y:hidden;scrollbar-width:thin;min-width:0;width:100%;height:47px;
+  padding:6px clamp(14px,2.5vw,34px);background:#fff;
+  border-bottom:1px solid #e2e9e1;white-space:nowrap;
+}
+body.zeus-shell-app .zeus-contextnav[hidden]{display:none!important}
+body.zeus-shell-app .zeus-contextnav a {flex-shrink:0;display:inline-flex;align-items:center;
+  min-height:32px;padding:7px 11px;border-radius:7px;text-decoration:none;
+  color:#456655;font:600 11px/1.3 Arial,Helvetica,sans-serif;box-sizing:border-box;}
+body.zeus-shell-app .zeus-contextnav a:hover {background:#f1f5ef;color:#28594a;}
+body.zeus-shell-app .zeus-contextnav a.zeus-context-active {background:#e7f0e8;color:#245946;}
+body.zeus-shell-app.zeus-has-context .zeus-workspace {height:calc(100dvh - 62px - 47px);}
+@media(max-width:850px) {
+ body.zeus-shell-app .zeus-contextnav{height:46px;padding:5px 11px;}
+ body.zeus-shell-app .zeus-contextnav a{font-size:11px;padding:6px 9px;}
+ body.zeus-shell-app.zeus-has-context .zeus-workspace{height:calc(100dvh - 58px - 46px);}
+}
+@media print{body.zeus-shell-app .zeus-contextnav{display:none!important}}
+/* Layout protection: the general main-content gutter must NEVER affect the
+   persistent iframe workspace. Specificity beats legacy main:not() rules. */
+body.zeus-navigation.zeus-shell-app > main.zeus-workspace {
+  width:100%!important;max-width:none!important;min-width:0!important;
+  padding:0!important;margin:0!important;overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+body.zeus-navigation.zeus-shell-app > main.zeus-workspace > iframe.zeus-workspace-frame {
+  width:100%!important;height:100%!important;max-width:none!important;
+  min-width:0!important;display:block!important;border:0!important;
+  padding:0!important;margin:0!important;box-sizing:border-box!important;
+}
+
+body.zeus-navigation.zeus-shell-app > main.zeus-workspace > iframe.zeus-workspace-frame[hidden] {display:none!important;}
+body.zeus-shell-app .zeus-unavailable {
+  max-width:620px;box-sizing:border-box;margin:clamp(24px,6vh,80px) auto;
+  padding:26px 30px;border:1px solid #dce4df;border-radius:12px;
+  background:#fff;color:#25362f;font:15px/1.6 Arial,Helvetica,sans-serif;
+}
+body.zeus-shell-app .zeus-unavailable[hidden]{display:none!important}
+body.zeus-shell-app .zeus-unavailable h2{margin:0 0 8px;font-size:22px}
+body.zeus-shell-app .zeus-unavailable p{margin:0 0 16px}
+body.zeus-shell-app .zeus-unavailable a{color:#216644;font-weight:700}
+@media(max-width:700px){body.zeus-shell-app .zeus-unavailable{margin:18px 12px;padding:20px}}

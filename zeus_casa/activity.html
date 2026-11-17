@@ -1,0 +1,9 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Registro attività – ZEUS</title>
+<link rel="stylesheet" href="/zeus-admin.css"><link rel="stylesheet" href="/zeus-nav.css?v=1.7.5"></head><body>
+<main class="zeus-admin-content"><div class="zeus-admin-head"><small>ZEUS CASA · AMMINISTRAZIONE</small><h1>Registro attività</h1><p>Operazioni registrate a partire dall'installazione della versione 1.7.4. I dati esistenti non generano registrazioni retroattive.</p></div>
+<div class="zeus-admin-filter"><label>Modulo<select id="activity-module"><option value="">Tutti i moduli</option><option>ZEUS Casa</option><option>ZEUS Lending</option><option>ZEUS Finance</option><option>ZEUS Vault</option></select></label>
+<label>Da questa data<input type="date" id="activity-since"></label><button id="activity-filter" type="button">Applica filtri</button><button type="button" id="activity-export">Esporta CSV</button></div>
+<div class="zeus-admin-status" id="activity-status" role="status"></div>
+<div class="zeus-admin-table"><table><thead><tr><th>Quando</th><th>Utente</th><th>Modulo</th><th>Operazione</th><th>Elemento</th><th>Informazioni</th></tr></thead><tbody id="activity-rows"><tr><td colspan="6">Caricamento…</td></tr></tbody></table></div>
+<p class="zeus-admin-hint">Registro protetto dalla sessione ZEUS. Non registra password, token o contenuto degli allegati. Gli utenti che condividono le stesse credenziali risultano indistinguibili.</p>
+</main><script src="/nav.js?v=1.7.7" defer></script><script src="/activity.js?v=1.7.4" defer></script><script src="/auth-ui.js?v=1.7.4" defer></script></body></html>

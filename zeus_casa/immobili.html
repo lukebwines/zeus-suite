@@ -1,0 +1,14 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Configurazione immobili – ZEUS</title>
+<link rel="stylesheet" href="/zeus-admin.css"><link rel="stylesheet" href="/zeus-nav.css?v=1.7.5"></head><body>
+<main class="zeus-admin-content"><div class="zeus-admin-head"><small>ZEUS CASA · AMMINISTRAZIONE</small><h1>Configurazione immobili</h1><p>Nomi, contatori e criteri di ripartizione, senza modificare i rendiconti già registrati.</p></div>
+<div class="zeus-admin-grid"><section class="zeus-admin-card"><h2>Nome degli appartamenti</h2><p>I nomi visualizzati nei moduli ZEUS possono essere aggiornati qui.</p>
+<form id="apartment-form"><label for="name0">Appartamento 1 – sottocontatore</label><input id="name0" maxlength="60" required autocomplete="off">
+<label for="name1">Appartamento 2 – differenza</label><input id="name1" maxlength="60" required autocomplete="off"><button type="submit" id="save-names">Salva nomi</button></form>
+<div class="zeus-admin-status" id="apartment-status" role="status"></div></section>
+<section class="zeus-admin-card"><h2>Contatori e letture</h2><p>Controlla il contatore generale, i sottocontatori, l'attivazione del secondo sottocontatore e le letture associate.</p>
+<a class="zeus-admin-action secondary" href="/letture">Apri Registro letture</a><a class="zeus-admin-action secondary" href="/gestione">Gestione contatori</a>
+<div class="zeus-admin-hint">Le associazioni tecniche esistenti rimangono gestite nei moduli specialistici. Non vengono modificate automaticamente quando rinomini un appartamento.</div></section>
+<section class="zeus-admin-card"><h2>Criteri di ripartizione</h2><p>Verifica le quote fisse e variabili e le regole effettivamente applicate alle bollette.</p>
+<a class="zeus-admin-action secondary" href="/percorso">Verifica e ripartisci</a><a class="zeus-admin-action secondary" href="/gestione">Regole gestionali</a>
+<div class="zeus-admin-hint">Gli eventuali rendiconti storici chiusi non devono essere ricalcolati in seguito a una modifica delle impostazioni.</div></section>
+</div></main><script src="/nav.js?v=1.7.7" defer></script><script src="/immobili.js?v=1.7.4" defer></script><script src="/auth-ui.js?v=1.7.4" defer></script></body></html>

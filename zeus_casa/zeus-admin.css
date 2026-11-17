@@ -1,0 +1,27 @@
+:root{--zc:#28594a;--zi:#263c36;--zl:#dce7dc;--zm:#657b6d}
+.zeus-admin-content{box-sizing:border-box;min-width:0;max-width:1250px;margin:0 auto;padding:30px clamp(17px,3vw,40px) 55px;color:var(--zi);font:14px/1.65 Arial,Helvetica,sans-serif}
+.zeus-admin-content *{box-sizing:border-box}
+.zeus-admin-head{margin:0 0 24px}
+.zeus-admin-head small{font-size:10px;color:#6d8d7b;letter-spacing:1.7px;font-weight:700}
+.zeus-admin-head h1{font-size:clamp(26px,3vw,36px);font-weight:500;letter-spacing:-1px;margin:4px 0}
+.zeus-admin-head p{color:var(--zm);margin:5px 0}
+.zeus-admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.zeus-admin-card{background:white;border:1px solid var(--zl);border-radius:11px;padding:23px;min-width:0}
+.zeus-admin-card h2{font-size:17px;margin:0 0 8px}.zeus-admin-card p{margin:4px 0 15px;color:var(--zm);font-size:13px}
+.zeus-admin-card label{display:block;font-size:12px;font-weight:600;margin:12px 0 5px}
+.zeus-admin-card input,.zeus-admin-card select,.zeus-admin-filter input,.zeus-admin-filter select{display:block;width:100%;border:1px solid #cbdacb;border-radius:7px;background:#fff;color:var(--zi);font:inherit;padding:11px}
+.zeus-admin-card button,.zeus-admin-action,.zeus-admin-filter button{display:inline-block;text-decoration:none;cursor:pointer;border:1px solid var(--zc);border-radius:7px;padding:10px 16px;background:var(--zc);color:white;font:600 12px/1.3 Arial,Helvetica,sans-serif;margin:10px 8px 0 0}
+.zeus-admin-action.secondary,.zeus-admin-card .secondary{background:white;color:var(--zc)}
+.zeus-admin-hint{background:#f1f6ef;padding:14px;border-radius:8px;color:#62796d;margin-top:15px;font-size:12px}
+.zeus-admin-status{color:var(--zc);min-height:20px;margin:12px 0;font-size:12px}.zeus-admin-status.error{color:#a33328}
+.zeus-admin-filter{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:0 0 18px}.zeus-admin-filter label{font-size:12px;min-width:160px;flex:1}.zeus-admin-filter button{margin:0}
+.zeus-admin-table{overflow:auto;background:#fff;border:1px solid var(--zl);border-radius:10px;max-width:100%;}
+.zeus-admin-table table{width:100%;border-collapse:collapse;min-width:650px;font-size:12px;text-align:left}
+.zeus-admin-table th{background:#f6f9f5;color:#718578;font-weight:700}
+.zeus-admin-table th,.zeus-admin-table td{padding:13px 15px;border-bottom:1px solid #e5ede4;vertical-align:top}
+.zeus-admin-table tr:last-child td{border-bottom:0}
+@media(max-width:850px){.zeus-admin-content{padding:20px 16px 30px}}
+
+.zeus-admin-restore{margin-top:20px;border-top:1px solid #dce7dc;padding-top:16px}
+.zeus-admin-restore h3{font-size:15px;margin:0 0 5px;color:#28594a}
+.zeus-admin-restore [hidden]{display:none!important}
